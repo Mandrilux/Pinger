@@ -1,13 +1,12 @@
 #!/usr/bin/python3
-## ping.py for  in /home/baptiste/rendu/test
+## ping.py for  in /home/baptiste/openbsd/pinger/
 ## 
 ## Made by 
-## Login   <baptiste@epitech.net>
+## Login   <baptiste.heraud@epitech.eu>
 ## 
 ## Started on  Fri May  6 21:02:29 2016 
-## Last update Fri May  6 21:11:21 2016 
+## Last update Fri May  6 21:17:55 2016 
 ##
-
 # -*- coding: utf-8 -*-
 
 import sys
@@ -26,3 +25,4 @@ i = 0
 while i < 100000000:
     sendp(ip)
     i = i + 1
+    
