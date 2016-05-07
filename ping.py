@@ -5,11 +5,14 @@
 ## Login   <baptiste.heraud@epitech.eu>
 ## 
 ## Started on  Fri May  6 21:02:29 2016 
-## Last update Fri May  6 21:17:55 2016 
+## Last update Sat May  7 09:43:48 2016 
 ##
 # -*- coding: utf-8 -*-
 
 import sys
+from function import *
+import time
+
 try:
     import logging
     logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
@@ -18,11 +21,20 @@ except ImportError:
     print ("this program need scappy for work")
     sys.exit(84)
 
-print ("put ip please")
-ip = input()
+stop = False
+while stop != True:
+    print ("IP to ping ? ")
+    ip = input()
+    if is_ip(ip) == True:
+      stop = True
 ping = Ether() / IP(dst=ip) / ICMP()
 i = 0
 while i < 100000000:
-    sendp(ip)
+    try:
+        sendp(ip)
+        rep_ok, rep_ko = srp(ping)
+        time.sleep(1)
+    except KeyboardInterrupt:
+        print ("You pressed Ctrl+C")
+        sys.exit(84)
     i = i + 1
-    
