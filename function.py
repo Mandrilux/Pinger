@@ -10,7 +10,7 @@ def is_ip(ip):
             nb = [int(z) for z in test]
         except ValueError:
             return False
-        if nb[0] <= 255 and nb[1] <= 255 and nb[2] <= 255 and nb[3]:
+        if (nb[0] <= 255  and nb[1] <= 255 and nb[2] <= 255 and nb[3] <= 255):
             return True
         else:
             return False
