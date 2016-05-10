@@ -5,14 +5,14 @@
 ## Login   <baptiste.heraud@epitech.eu>
 ## 
 ## Started on  Fri May  6 21:02:29 2016 
-## Last update Tue May 10 19:00:33 2016 
+## Last update Tue May 10 19:18:51 2016 
 ##
 # -*- coding: utf-8 -*-
 
 import sys
 from function import *
 import time
-#import socket
+import socket
 
 try:
     import logging
@@ -33,8 +33,9 @@ while stop != True:
     except Exception:
         if is_ip(ip) == True:
             stop = True
+        else:
+            print ("invalid hostname ! check this")
 ping = Ether() / IP(dst=ip) / ICMP()
-
 while True:
     try:
         sendp(ping)
@@ -42,4 +43,8 @@ while True:
         time.sleep(1)
     except KeyboardInterrupt:
         print ("You pressed Ctrl+C")
+        sys.exit(84)        
+    except socket.error as msg:
+        print ("Socket Error :%s" %msg)
+        print ("You must launch this tool with rights root")
         sys.exit(84)
