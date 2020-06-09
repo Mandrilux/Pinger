@@ -19,7 +19,7 @@ try:
     logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
     from scapy.all import *
 except ImportError:
-    print ("this program need scappy for work")
+    print ("this program needs scapy to work")
     sys.exit(84)
 
 stop = False
@@ -46,5 +46,5 @@ while True:
         sys.exit(84)        
     except socket.error as msg:
         print ("Socket Error :%s" %msg)
-        print ("You must launch this tool with rights root")
+        print ("You must launch this tool with rights of root")
         sys.exit(84)
